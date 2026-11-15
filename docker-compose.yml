@@ -1,0 +1,21 @@
+# Para subir:
+#   cp .env.example .env   (preencha ADMIN_PASSWORD e SESSION_SECRET)
+#   docker compose up -d --build
+#
+# A porta fica presa ao 127.0.0.1 de propósito: o painel só abre nesta máquina
+# (http://localhost:3000). Para acessar pela internet, coloque um proxy com HTTPS
+# na frente (veja "Publicando com HTTPS" no README) e defina TRUST_PROXY=1 no .env.
+services:
+  cofre:
+    build: .
+    restart: unless-stopped
+    env_file: .env
+    environment:
+      DATA_DIR: /data
+    ports:
+      - "127.0.0.1:3000:3000"
+    volumes:
+      - cofre-data:/data
+
+volumes:
+  cofre-data:

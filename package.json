@@ -1,0 +1,16 @@
+{
+  "name": "cofre-backups",
+  "version": "1.0.0",
+  "private": true,
+  "license": "MIT",
+  "description": "Cofre simples de backups: recebe arquivos dos sistemas e guarda os últimos N por cliente.",
+  "type": "module",
+  "engines": {
+    "node": ">=22"
+  },
+  "scripts": {
+    "start": "node src/server.js",
+    "dev": "node --watch src/server.js",
+    "test": "node --test \"test/**/*.test.js\""
+  }
+}
